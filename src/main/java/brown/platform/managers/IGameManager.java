@@ -41,8 +41,11 @@ public interface IGameManager {
   public Integer getNumMarketBlocks(); 
   
   /**
-   * open the markets at a specified index. 
+   * 
    * @param index
+   * @param agents
+   * @param groupIndex
+   * @param numGroups
    */
   public void openMarkets(int index, Set<Integer> agents, int groupIndex, int numGroups); 
   
