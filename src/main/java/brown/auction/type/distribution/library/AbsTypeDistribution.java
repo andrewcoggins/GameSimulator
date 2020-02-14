@@ -4,6 +4,7 @@ import java.util.List;
 
 import brown.auction.type.distribution.ITypeDistribution;
 import brown.auction.type.generator.ITypeGenerator;
+import brown.auction.type.typespace.ITypeSpace;
 import brown.auction.type.valuation.IType;
 
 public abstract class AbsTypeDistribution implements ITypeDistribution {
@@ -15,6 +16,8 @@ public abstract class AbsTypeDistribution implements ITypeDistribution {
   }
 
   public abstract IType sample();
+  
+  public abstract ITypeSpace getTypeSpace(); 
 
   @Override
   public String toString() {

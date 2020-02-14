@@ -1,5 +1,6 @@
 package brown.auction.type.distribution;
 
+import brown.auction.type.typespace.ITypeSpace;
 import brown.auction.type.valuation.IType;
 
 /**
@@ -13,6 +14,14 @@ public interface ITypeDistribution {
    * @return IValuation
    */
   public IType sample();
+  
+  
+  /**
+   * gets the type space of the type distribution
+   * @return
+   * ITypeSpace object
+   */
+  public ITypeSpace getTypeSpace(); 
   
   
 }
