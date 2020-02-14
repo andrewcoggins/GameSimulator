@@ -1,6 +1,5 @@
 package brown.communication.messages.library;
 
-import brown.auction.type.typespace.ITypeSpace;
 import brown.auction.type.valuation.IType;
 import brown.communication.messages.ITypeMessage;
 import brown.user.agent.IAgent;
@@ -8,7 +7,6 @@ import brown.user.agent.IAgent;
 public class TypeMessage extends AbsServerToAgentMessage implements ITypeMessage {
   
   private IType valuation; 
-  private ITypeSpace typeSpace; 
   
   private int numAgentsInGame; 
   
@@ -17,11 +15,10 @@ public class TypeMessage extends AbsServerToAgentMessage implements ITypeMessage
   }
   
   
-  public TypeMessage(Integer messageID, Integer agentID, IType valuation, int numAgents, ITypeSpace typeSpace) {
+  public TypeMessage(Integer messageID, Integer agentID, IType valuation, int numAgents) {
     super(messageID, agentID);
     this.valuation = valuation; 
     this.numAgentsInGame = numAgents; 
-    this.typeSpace = typeSpace; 
   }
   
 
@@ -43,15 +40,9 @@ public class TypeMessage extends AbsServerToAgentMessage implements ITypeMessage
 
 
   @Override
-  public ITypeSpace getTypeSpace() {
-    return this.typeSpace;
-  }
-
-
-  @Override
   public String toString() {
-    return "TypeMessage [valuation=" + valuation + ", typeSpace=" + typeSpace
-        + ", numAgentsInGame=" + numAgentsInGame + "]";
+    return "TypeMessage [valuation=" + valuation + ", numAgentsInGame="
+        + numAgentsInGame + "]";
   }
 
 
@@ -60,7 +51,6 @@ public class TypeMessage extends AbsServerToAgentMessage implements ITypeMessage
     final int prime = 31;
     int result = 1;
     result = prime * result + numAgentsInGame;
-    result = prime * result + ((typeSpace == null) ? 0 : typeSpace.hashCode());
     result = prime * result + ((valuation == null) ? 0 : valuation.hashCode());
     return result;
   }
@@ -76,11 +66,6 @@ public class TypeMessage extends AbsServerToAgentMessage implements ITypeMessage
       return false;
     TypeMessage other = (TypeMessage) obj;
     if (numAgentsInGame != other.numAgentsInGame)
-      return false;
-    if (typeSpace == null) {
-      if (other.typeSpace != null)
-        return false;
-    } else if (!typeSpace.equals(other.typeSpace))
       return false;
     if (valuation == null) {
       if (other.valuation != null)

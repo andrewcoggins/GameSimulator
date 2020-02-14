@@ -81,7 +81,7 @@ public class TypeManager implements ITypeManager {
         new HashMap<Integer, ITypeMessage>();
     for (Integer agentValuation : this.agentValuations.keySet()) {
       agentValuationMessages.put(agentValuation, new TypeMessage(0,
-          agentValuation, this.agentValuations.get(agentValuation), groupSize, this.distributions.getTypeSpace()));
+          agentValuation, this.agentValuations.get(agentValuation), groupSize));
     }
     return agentValuationMessages;
   }
